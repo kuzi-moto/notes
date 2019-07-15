@@ -4,18 +4,39 @@ My most used git commands that I cannot remember
 
 ## Commands
 
-### Undo last commit
+### Undoing changes
 
-`git reset --soft HEAD~1`
+```bash
+git fetch --all
+git reset --hard HEAD
+```
 
-* Reset current HEAD branch to specified revision. Above means one before current.
+Fetch all remote repositories, then rest to HEAD which is the most recent commit in the current branch.
 
-`git reset --hard HEAD~1`
+```bash
+git reset --soft HEAD~1
+```
 
-* Use `--hard` to get rid of all changes.
+Reset current HEAD branch to one revision before most current.
 
-`git reset --hard 0ad5a7a6`
+```bash
+git reset --hard HEAD~1
+```
 
-* Return to any previous version.
+Use `--hard` to get rid of all changes to your local files.
 
-### df
+```bash
+git reset --hard 0ad5a7a6
+```
+
+Return to a specific version.
+
+### Change branch
+
+```bash
+git checkout <branch name>
+```
+
+This will change all files to specified branch. Some notes; if this exists locally you will change to it. If it does not exist locally, and does exist on the remote, then it will create it locally and pull from the remote. If it doesn't exist in either, it will just be created locally.
+
+### Reset
